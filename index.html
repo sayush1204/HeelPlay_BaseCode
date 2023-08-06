@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HeelPlay - Homepage</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body> 
+    <div class="login-section">
+        <div class="login-box">
+            <h1>[HeelPlay Logo]</h1>
+            <br>
+            <p><center><i>Welcome to Heelplay, A platform where you can connect with other athletes at UNC!</i></center></p> 
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+            <br>
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="form-group">
+                    <br>
+                    <input type="email" name="email" placeholder="Username or email address"><br><br>
+                    <input type="password" name="password" placeholder="Password"><br><br>
+                </div>
+                <button type="submit" class="button">Log In</button>
+            </form>
+            <br>
+            <p>-------------------------------- or -------------------------------</p>
+            <br>
+            <div class="register">
+                <span>Don't have an account?</span>
+                <a href="{{ url_for('register') }}" class="register-button"><b>Sign Up</b></a> 
+            </div>
+        </div>
+    </div>|
+</body>
+</html>
+

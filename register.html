@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HeelPlay - Register</title>
+    <!-- <link rel="stylesheet" href="register.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+    <div class="register-section">
+        <div class="register-box">
+            <h1>Sign Up for HeelPlay</h1>
+            <br>
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('register') }}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" required placeholder="Name" value="{{ name }}">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required placeholder="Email address" value="{{ email }}">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" required placeholder="Password"><br><br>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="confirm_password" required placeholder="Confirm Password"><br><br>
+                    </div>
+                    <div class="input-group2">
+                        <input type="number" name="graduation_year" required placeholder="Graduation Year" value="{{ graduation_year }}"><br><br>
+                    </div>
+                    <div class="input-group2">
+                        <input type="text" name="major" placeholder="Major" value="{{ major }}"><br><br>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="sport" placeholder="Sport" value="{{ sport }}"><br><br>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="position" placeholder="Position" value="{{ position }}"><br><br>
+                    </div>
+                    <textarea class="bio" name="bio" placeholder=" Add a bio">{{ bio }}</textarea><br><br>
+                    <input id="upload" type="file" class="upload">
+                    <input type="submit" value="Register" class="button">
+                </div>
+            </form>
+            <br>
+            <p>-------------------------------------------- or ---------------------------------------------</p>
+            <br>
+            <div class="login">
+                <span>Already have an account?</span>
+                <a href="{{ url_for('index') }}" class="login-button"><b>Log In</b></a> 
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

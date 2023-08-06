@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+  <!-- <link rel="stylesheet" href="main.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#" class="logo">[HeelPlay Logo]</a>
+    <div class="navbar-right">
+      <a href="{{ url_for('login') }}" class="log-out-button">Log Out</a>
+    </div>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="profile-section">
+    <div class="profile-box">
+      <h2>My Profile</h2>
+      <div class="profile-picture">
+        {% if user.profile_pic %}
+          <img src="{{ url_for('static', filename=user['profile_pic']) }}" alt="Profile Picture">
+        {% else %}
+        <!-- Provide a default profile picture if the user has not uploaded one -->
+          <img src="{{ url_for('static', filename='heelplay_pp.png') }}" alt="Profile Picture">
+        {% endif %}
+      </div>
+      <p><b>Email:</b> {{ user['email'] }}</p>
+      <p><b>Graduation Year:</b> {{ user['graduation_year'] }}</p>
+      <p><b>Major:</b> {{ user['major'] }}</p>
+      <p><b>Sport:</b> {{ user['sport'] }}</p>
+      <p><b>Position:</b> {{ user['position'] }}</p>
+      <p><b>Bio:</b> {{ user['bio'] }}</p>
+      <!-- Add other profile information here -->
+      <a href="{{ url_for('edit_profile') }}" class="edit-profile-button">Edit Profile</a>
+    </div>
+  </div>
+
+</body>
+</html>

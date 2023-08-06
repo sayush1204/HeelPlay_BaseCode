@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HeelPlay - Login</title>
+</head>
+<body>
+    <div class="login-section">
+       <div class="login-box">
+            <h1>Login</h1>
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('login') }}">
+                <label>Email:</label>
+                <input type="email" name="email" required><br><br>
+                <label>Password:</label>
+                <input type="password" name="password" required><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
